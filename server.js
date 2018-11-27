@@ -2,12 +2,17 @@
 //npm run server -> nodemon running.
 
 const express = require("express"),
-  mongoose = require("mongoose");
+  mongoose = require("mongoose"),
+  bodyParser = require("body-parser");
 
 const users = require("./routes/api/users");
 const profile = require("./routes/api/profile");
 const posts = require("./routes/api/posts");
 const app = express();
+
+//Body parser middleware
+app.use(bodyParser.urlencoded({ extended: false }));
+app.use(bodyParser.json());
 
 //DB config
 const db = require("./config/keys").mongoURL;
