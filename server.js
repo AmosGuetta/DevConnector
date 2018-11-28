@@ -1,11 +1,11 @@
-const express     =  require('express'),
-      mongoose    =  require('mongoose'),
-      passport    =  require('passport'),
-      bodyParser  =  require('body-parser');
+const express     = require('express'),
+      mongoose    = require('mongoose'),
+      bodyParser  = require('body-parser'),
+      passport    = require('passport');
 
-const users     = require('./routes/api/users'),
-      profile   = require('./routes/api/profile'),
-      posts     = require('./routes/api/posts');
+const users       = require('./routes/api/users'),
+      profile     = require('./routes/api/profile'),
+      posts       = require('./routes/api/posts');
 
 const app = express();
 
@@ -32,6 +32,6 @@ app.use('/api/users', users);
 app.use('/api/profile', profile);
 app.use('/api/posts', posts);
 
-const port = process.env.PORT || 5000;
+const port = process.env.PORT || 3000;
 
-app.listen(port, () => console.log("Server running on port:", port));
+app.listen(port, () => console.log(`Server running on port ${port}`));
