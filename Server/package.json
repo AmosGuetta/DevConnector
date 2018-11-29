@@ -4,8 +4,10 @@
   "description": "Soxial network for developres",
   "main": "server.js",
   "scripts": {
+   
     "start": "node server.js",
     "server": "nodemon server.js"
+    
   },
   "repository": {
     "type": "git",
