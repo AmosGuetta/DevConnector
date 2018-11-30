@@ -20,10 +20,16 @@ class Register extends Component {
 		this.onSubmit = this.onSubmit.bind(this);
 	}
 
-	componentWillReceiveProps(next) {
-		if (next.errors) {
+	componentDidMount() {
+		if (this.props.auth.isAuthenticated) {
+			this.props.history.push('/dashboard');
+		}
+	}
+
+	componentWillReceiveProps(nextProps) {
+		if (nextProps.errors) {
 			this.setState({
-				errors: next.errors
+				errors: nextProps.errors
 			});
 		}
 	}
@@ -42,7 +48,7 @@ class Register extends Component {
 			password2: this.state.password2
 		};
 
-		this.props.registerUser(newUser);
+		this.props.registerUser(newUser, this.props.history);
 	}
 
 	render() {
@@ -123,10 +129,12 @@ class Register extends Component {
 
 Register.propTypes = {
 	registerUser: PropTypes.func.isRequired,
+	auth: PropTypes.object.isRequired,
 	errors: PropTypes.object.isRequired
 };
 
 const mapStateToProps = (state) => ({
+	auth: state.auth,
 	errors: state.errors
 });
 
