@@ -6,7 +6,7 @@ const initailState = {
 	user: {}
 };
 
-export default function(state = initailState, action) {
+const authReducer = (state = initailState, action) => {
 	switch (action.type) {
 		case SET_CURRENT_USER:
 			return {
@@ -17,4 +17,6 @@ export default function(state = initailState, action) {
 		default:
 			return state;
 	}
-}
+};
+
+export default authReducer;
