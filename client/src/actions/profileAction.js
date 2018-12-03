@@ -3,7 +3,7 @@ import axios from 'axios';
 import {
 	GET_PROFILE,
 	PROFILE_LOADING,
-	GET_ERROS,
+	// GET_ERROS,
 	CLEAR_CURRENT_PROFILE
 } from './types';
 
