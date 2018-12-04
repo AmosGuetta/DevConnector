@@ -1,4 +1,5 @@
 import {} from '../actions/types';
+
 const initialState = {
 	profile: null,
 	profiles: null,
