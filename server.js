@@ -1,7 +1,8 @@
 const express = require('express'),
   mongoose = require('mongoose'),
   bodyParser = require('body-parser'),
-  passport = require('passport');
+  path = require('path');
+passport = require('passport');
 
 const users = require('./routes/api/users'),
   profile = require('./routes/api/profile'),
