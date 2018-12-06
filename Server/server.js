@@ -1,11 +1,11 @@
 const express = require('express'),
-	mongoose = require('mongoose'),
-	bodyParser = require('body-parser'),
-	passport = require('passport');
+  mongoose = require('mongoose'),
+  bodyParser = require('body-parser'),
+  passport = require('passport');
 
 const users = require('./routes/api/users'),
-	profile = require('./routes/api/profile'),
-	posts = require('./routes/api/posts');
+  profile = require('./routes/api/profile'),
+  posts = require('./routes/api/posts');
 
 const app = express();
 
@@ -18,12 +18,12 @@ const db = require('./config/keys').mongoURL;
 
 // Connect to MongoDB
 mongoose
-	.connect(
-		db,
-		{ useNewUrlParser: true }
-	)
-	.then(() => console.log('MongoDB Connected'))
-	.catch((err) => console.log(err));
+  .connect(
+    db,
+    { useNewUrlParser: true }
+  )
+  .then(() => console.log('MongoDB Connected'))
+  .catch((err) => console.log(err));
 
 // Passport middleware
 app.use(passport.initialize());

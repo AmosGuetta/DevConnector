@@ -3,7 +3,11 @@ import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
 import classnames from 'classnames';
 import { Link } from 'react-router-dom';
-import { deletePost, addLike, removeLike } from '../../actions/postActions';
+import {
+  deletePost,
+  addLike,
+  removeLike
+} from '../../reduxComponents/actions/postActions';
 
 class PostItem extends Component {
   onDeleteClick(id) {
@@ -20,7 +24,7 @@ class PostItem extends Component {
 
   findUserLike(likes) {
     const { auth } = this.props;
-    if (likes.filter(like => like.user === auth.user.id).length > 0) {
+    if (likes.filter((like) => like.user === auth.user.id).length > 0) {
       return true;
     } else {
       return false;
@@ -51,8 +55,7 @@ class PostItem extends Component {
                 <button
                   onClick={this.onLikeClick.bind(this, post._id)}
                   type="button"
-                  className="btn btn-light mr-1"
-                >
+                  className="btn btn-light mr-1">
                   <i
                     className={classnames('fas fa-thumbs-up', {
                       'text-info': this.findUserLike(post.likes)
@@ -63,8 +66,7 @@ class PostItem extends Component {
                 <button
                   onClick={this.onUnlikeClick.bind(this, post._id)}
                   type="button"
-                  className="btn btn-light mr-1"
-                >
+                  className="btn btn-light mr-1">
                   <i className="text-secondary fas fa-thumbs-down" />
                 </button>
                 <Link to={`/post/${post._id}`} className="btn btn-info mr-1">
@@ -74,8 +76,7 @@ class PostItem extends Component {
                   <button
                     onClick={this.onDeleteClick.bind(this, post._id)}
                     type="button"
-                    className="btn btn-danger mr-1"
-                  >
+                    className="btn btn-danger mr-1">
                     <i className="fas fa-times" />
                   </button>
                 ) : null}
@@ -100,10 +101,11 @@ PostItem.propTypes = {
   auth: PropTypes.object.isRequired
 };
 
-const mapStateToProps = state => ({
+const mapStateToProps = (state) => ({
   auth: state.auth
 });
 
-export default connect(mapStateToProps, { deletePost, addLike, removeLike })(
-  PostItem
-);
+export default connect(
+  mapStateToProps,
+  { deletePost, addLike, removeLike }
+)(PostItem);
